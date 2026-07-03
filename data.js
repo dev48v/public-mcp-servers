@@ -372,6 +372,11 @@ const SERVERS = [
     repo:"resend/resend-mcp", url:"https://github.com/resend/resend-mcp",
     use:"Send transactional email from the agent — plain text or HTML.",
     env:["RESEND_API_KEY"], inst:{t:"docs", v:"https://github.com/resend/resend-mcp"} },
+  { id:"xquik", n:"Xquik MCP Server", cat:"comm", tier:"paid", badge:"official", tr:"http",
+    repo:"Xquik-dev/x-twitter-scraper", url:"https://github.com/Xquik-dev/x-twitter-scraper",
+    use:"Search, monitor and extract X/Twitter data; run media tools, webhooks and confirmation-gated write actions.",
+    env:["XQUIK_API_KEY"], inst:{t:"http", v:"https://xquik.com/mcp"},
+    sec:"Requires an Xquik API key. Keep access scoped to the workspace that needs X data." },
 
   // ---------- Finance & Payments ----------
   { id:"stripe", n:"Stripe", cat:"fin", tier:"freemium", badge:"official", tr:"http",
