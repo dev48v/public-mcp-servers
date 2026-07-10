@@ -1,0 +1,32 @@
+name: Validate contribution
+
+# Runs on every PR that touches the data — gives a green ✓ / red ✗ check
+# so contributors get instant feedback against CONTRIBUTING.md.
+on:
+  pull_request:
+    paths:
+      - "data.js"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Check data.js against CONTRIBUTING.md schema
+        run: node validate.mjs
+
+  link-check:
+    runs-on: ubuntu-latest
+    # Informational — dead links are flagged but don't block merge (external sites can be flaky).
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Check curated server links are alive
+        run: node check-links.mjs
