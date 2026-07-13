@@ -548,5 +548,10 @@ const SERVERS = [
   { id:"kafka", n:"Confluent (Kafka)", cat:"biz", tier:"freemium", badge:"official", tr:"stdio",
     repo:"confluentinc/mcp-confluent", url:"https://github.com/confluentinc/mcp-confluent",
     use:"Manage Kafka topics, connectors and Flink SQL on Confluent Cloud.",
-    env:[], inst:{t:"docs", v:"https://github.com/confluentinc/mcp-confluent"} }
+    env:[], inst:{t:"docs", v:"https://github.com/confluentinc/mcp-confluent"} },
+  { id:"notfair", n:"NotFair", cat:"biz", tier:"freemium", badge:"community", tr:"stdio",
+    repo:"nowork-studio/NotFair", url:"https://github.com/nowork-studio/NotFair",
+    use:"Open-source Claude Code skills for SEO, GEO/AEO and paid ads that bundle four MCP servers — Google Search Console, Google Analytics (GA4), Google Ads and Meta Ads — for live account data.",
+    env:["GOOGLE_ADS_CREDENTIALS","META_ADS_CREDENTIALS","GSC_CREDENTIALS","GA4_CREDENTIALS"], inst:{t:"docs", v:"https://github.com/nowork-studio/NotFair"},
+    sec:"Connects to Google and Meta ad/analytics accounts via OAuth — scope credentials to only the accounts you want the agent to touch." }
 ];
