@@ -116,7 +116,7 @@ footer{border-top:1px solid var(--card-b);padding:34px 0 46px;color:var(--tx3);f
 <header class="wrap">
   <a class="sister" href="https://api-library-two.vercel.app">📡 Sister site: API Library ↗</a>
   <h1>🔌 <span class="g">MCP Directory</span></h1>
-  <p class="sub">A curated map of <b id="totalN">100+</b> Model Context Protocol servers — what they do, what they cost, and exact configs to connect them to Claude Code, Claude Desktop, Cursor or VS Code.</p>
+  <p class="sub">A map of <b id="totalN">100+</b> hand-curated Model Context Protocol servers (with connect configs) plus a <b>18,496-server catalog</b> from every public registry — what they do, what they cost, and exact configs to connect them to Claude Code, Claude Desktop, Cursor or VS Code.</p>
   <div class="explain">
     <b>MCP ≠ API.</b> An <b>API</b> is a service's raw interface. An <b>MCP server</b> is a standard connector that wraps tools/data so any AI agent can use them — the agent speaks one protocol (MCP) instead of a hundred different APIs. Server code here is almost always free & open source; the <b>tier badge rates what it costs to actually use it end-to-end</b>, including the service behind it.
   </div>
@@ -143,7 +143,7 @@ footer{border-top:1px solid var(--card-b);padding:34px 0 46px;color:var(--tx3);f
     <div class="fsec">⚠️ <b>Security:</b> MCP servers run with YOUR credentials and can act on your accounts. Prefer official servers, read community code before connecting, scope tokens narrowly, and treat fetched web content as untrusted (prompt injection).</div>
     <div class="frow">
       <span>MCP Directory · curated by <a href="https://github.com/dev48v" target="_blank" rel="noopener">dev48v</a> · last updated <span id="upd">2026-07-02</span></span>
-      <span><a href="https://api-library-two.vercel.app">📡 API Library ↗</a> · <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">What is MCP? ↗</a> · <a href="https://github.com/dev48v/mcp-directory/issues/new" target="_blank" rel="noopener">Submit a server ↗</a> · <a href="https://github.com/dev48v/mcp-directory" target="_blank" rel="noopener">Source ↗</a></span>
+      <span><a href="https://api-library-two.vercel.app">📡 API Library ↗</a> · <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">What is MCP? ↗</a> · <a href="https://github.com/dev48v/public-mcp-servers/issues/new" target="_blank" rel="noopener">Submit a server ↗</a> · <a href="https://github.com/dev48v/public-mcp-servers" target="_blank" rel="noopener">Source ↗</a></span>
     </div>
   </div>
 </footer>
@@ -153,7 +153,8 @@ footer{border-top:1px solid var(--card-b);padding:34px 0 46px;color:var(--tx3);f
 <script src="stars.js"></script>
 <script>
 const $=s=>document.querySelector(s);
-let tier="all", cat="all", q="";
+let tier="all", cat="all", q="", catN=90, csrc="all", catLoaded=false;
+const MCP_CAT_COUNT=18496;
 const CLIENTS=[["cc","Claude Code"],["cd","Claude Desktop"],["cu","Cursor"],["vs","VS Code"]];
 
 function starFmt(n){ return n>=1000 ? (n/1000).toFixed(1).replace(/\.0$/,"")+"k" : n; }
@@ -231,7 +232,30 @@ function copySnip(btn){
   navigator.clipboard.writeText(btn.nextElementSibling.textContent).then(()=>{ btn.textContent="✅ copied"; setTimeout(()=>btn.textContent="📋 copy",1400); });
 }
 
+function loadCat(cb){
+  if(catLoaded){cb();return;}
+  const sc=document.createElement("script"); sc.src="mcp-catalog.js";
+  sc.onload=()=>{catLoaded=true;cb();}; sc.onerror=()=>{cb();}; document.head.appendChild(sc);
+}
+const SRCB={registry:["b-official","official registry"],smithery:["b-freemium","Smithery"],glama:["b-freemium","Glama"],awesome:["b-community","awesome-mcp"]};
+function mcard(r){
+  const [bc,bl]=SRCB[r.src]||["b-community",r.src];
+  return `<div class="card" style="gap:8px">
+    <div class="chead"><div class="cname">🔌 ${esc(r.n)}</div>
+      <div class="badges"><span class="b ${bc}">${bl}</span>${r.tr?`<span class="b b-reference">${esc(r.tr)}</span>`:""}</div></div>
+    <div class="use">${esc(r.d||"MCP server")}</div>
+    <div class="cfoot"><div class="cmeta"><span>📚 catalog</span></div>
+      <div class="cbtns">${r.u?`<a class="btn" href="${r.u}" target="_blank" rel="noopener">Open ↗</a>`:""}</div></div></div>`;
+}
+function renderCatalog(){
+  if(typeof MCP_CATALOG==="undefined"){ $("#grid").innerHTML=`<div class="empty">Loading catalog…</div>`; loadCat(()=>render()); return; }
+  const list=MCP_CATALOG.filter(r=>(csrc==="all"||r.src===csrc)&&(!q||(r.n+" "+r.d+" "+r.src).toLowerCase().includes(q)));
+  const shown=list.slice(0,catN);
+  $("#grid").innerHTML=(shown.length?shown.map(mcard).join(""):`<div class="empty">No catalog servers match.</div>`)+
+    (list.length>catN?`<button class="btn p" style="grid-column:1/-1;padding:12px" onclick="catN+=180;render()">Load more (${(list.length-catN).toLocaleString()} left)</button>`:"");
+}
 function render(){
+  if(tier==="cat"){ renderCatalog(); return; }
   const list=SERVERS.filter(s=>
     (tier==="all"||s.tier===tier)&&(cat==="all"||s.cat===cat)&&
     (!q||(s.n+" "+s.use+" "+CATS[s.cat].label).toLowerCase().includes(q)));
@@ -239,9 +263,16 @@ function render(){
 }
 function renderControls(){
   const cnt=t=>SERVERS.filter(s=>t==="all"||s.tier===t).length;
-  $("#tiertabs").innerHTML=[["all","All"],["free","🆓 Free"],["freemium","🔑 Freemium"],["paid","💎 Paid"]]
-    .map(([k,l])=>`<button class="tab${k===tier?" on":""}" data-t="${k}">${l}<span class="cnt">${cnt(k)}</span></button>`).join("");
+  $("#tiertabs").innerHTML=[["all","All"],["free","🆓 Free"],["freemium","🔑 Freemium"],["paid","💎 Paid"],["cat","📚 Catalog"]]
+    .map(([k,l])=>`<button class="tab${k===tier?" on":""}" data-t="${k}">${l}<span class="cnt">${k==="cat"?MCP_CAT_COUNT.toLocaleString():cnt(k)}</span></button>`).join("");
   document.querySelectorAll("#tiertabs .tab").forEach(b=>b.onclick=()=>{tier=b.dataset.t;renderControls();render();});
+  if(tier==="cat"){
+    const SRC=[["all","All sources"],["registry","Official registry"],["smithery","Smithery"],["glama","Glama"],["awesome","awesome-mcp-servers"]];
+    $("#chips").innerHTML=SRC.map(([k,l])=>`<button class="chip${k===csrc?" on":""}" data-src="${k}">${l}</button>`).join("")+
+      `<span style="font-size:.72rem;color:var(--tx3);align-self:center;margin-left:6px">Extended catalog merged from the public MCP registries — names & links only; not individually vetted. Curated tabs are hand-checked.</span>`;
+    document.querySelectorAll("#chips [data-src]").forEach(b=>b.onclick=()=>{csrc=b.dataset.src;catN=90;renderControls();render();});
+    return;
+  }
   const cats=[["all","All categories"],...Object.entries(CATS).filter(([k])=>SERVERS.some(s=>s.cat===k)).map(([k,v])=>[k,v.icon+" "+v.label])];
   $("#chips").innerHTML=cats.map(([k,l])=>`<button class="chip${k===cat?" on":""}" data-c="${k}">${l}</button>`).join("");
   document.querySelectorAll("#chips .chip").forEach(b=>b.onclick=()=>{cat=b.dataset.c;renderControls();render();});
@@ -249,11 +280,11 @@ function renderControls(){
 function renderStats(){
   const n=t=>SERVERS.filter(s=>s.tier===t).length, o=SERVERS.filter(s=>s.badge==="official").length;
   $("#totalN").textContent=SERVERS.length;
-  $("#stats").innerHTML=`<span class="stat"><b>${SERVERS.length}</b> servers</span>
+  $("#stats").innerHTML=`<div style="width:100%;display:flex;justify-content:center;margin-bottom:10px"><span class="stat" style="font-size:1rem;padding:10px 22px"><b>${SERVERS.length}</b> curated + <b>${MCP_CAT_COUNT.toLocaleString()}</b> catalog = <b style="background:linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent">${(SERVERS.length+MCP_CAT_COUNT).toLocaleString()}</b> MCP servers</span></div>
     <span class="stat"><b style="color:var(--free)">${n("free")}</b> free</span>
     <span class="stat"><b style="color:var(--freemium)">${n("freemium")}</b> freemium</span>
     <span class="stat"><b style="color:var(--paid)">${n("paid")}</b> paid</span>
-    <span class="stat"><b>${o}</b> official</span>`;
+    <span class="stat"><b>${o}</b> official curated</span>`;
 }
 $("#q").addEventListener("input",e=>{q=e.target.value.trim().toLowerCase();render();});
 window.addEventListener("scroll",()=>$("#top").classList.toggle("show",scrollY>500));
