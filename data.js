@@ -564,4 +564,8 @@ const SERVERS = [
     use:"Open-source Claude Code skills for SEO, GEO/AEO and paid ads that bundle four MCP servers — Google Search Console, Google Analytics (GA4), Google Ads and Meta Ads — for live account data.",
     env:["GOOGLE_ADS_CREDENTIALS","META_ADS_CREDENTIALS","GSC_CREDENTIALS","GA4_CREDENTIALS"], inst:{t:"docs", v:"https://github.com/nowork-studio/NotFair"},
     sec:"Connects to Google and Meta ad/analytics accounts via OAuth — scope credentials to only the accounts you want the agent to touch." }
+  { id:"agentservices", n:"AgentServices", cat:"fin", tier:"paid", badge:"community", tr:"http",
+    repo:"vbkotecha/aiservices-api", url:"https://agentservices.to",
+    use:"54-service paid data API for AI agents — crypto prices, forex, stocks, news, IP geo, DeFi yields with x402 micropayments.",
+    env:[], inst:{t:"http", v:"https://agentservices.to/mcp"} },
 ];
