@@ -90,6 +90,11 @@ const SERVERS = [
     repo:"czlonkowski/n8n-mcp", url:"https://github.com/czlonkowski/n8n-mcp",
     use:"Build n8n workflows with full node documentation — the agent knows every n8n node.",
     env:[], inst:{t:"npx", v:"n8n-mcp"} },
+  { id:"kiprio", n:"Kiprio MCP", cat:"dev", tier:"freemium", badge:"community", tr:"stdio",
+    repo:"ForeverTools/kiprio-mcp", url:"https://github.com/ForeverTools/kiprio-mcp",
+    use:"23 API tools for AI assistants: email validation, DNS/WHOIS, SSL inspection, IP lookup, FX rates and more.",
+    env:["KIPRIO_API_KEY"], inst:{t:"uvx", v:"kiprio-mcp"},
+    sec:"Free tier works without a key; KIPRIO_API_KEY from kiprio.com unlocks Pro rate limits." },
 
   // ---------- Browser & Automation ----------
   { id:"playwright", n:"Playwright", cat:"browser", tier:"free", badge:"official", tr:"stdio",
