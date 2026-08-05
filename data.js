@@ -446,6 +446,11 @@ const SERVERS = [
     repo:"BeehiveInnovations/pal-mcp-server", url:"https://github.com/BeehiveInnovations/pal-mcp-server",
     use:"Multi-model orchestration — Claude consults Gemini/GPT/local models for review and debate (BYO keys).",
     env:[], inst:{t:"docs", v:"https://github.com/BeehiveInnovations/pal-mcp-server"} },
+  { id:"runapi", n:"RunAPI", cat:"ai", tier:"paid", badge:"official", tr:"stdio",
+    repo:"runapi-ai/mcp", url:"https://github.com/runapi-ai/mcp",
+    use:"Discover model inputs and create AI image, video, music, speech and other model API tasks.",
+    env:["RUNAPI_API_KEY"], inst:{t:"npx", v:"@runapi.ai/mcp"},
+    sec:"Authenticated tools can create paid RunAPI tasks; review model pricing before starting long-running jobs." },
 
   // ---------- Security & Monitoring ----------
   { id:"sentry", n:"Sentry", cat:"secmon", tier:"freemium", badge:"official", tr:"http",
