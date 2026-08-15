@@ -476,6 +476,11 @@ const SERVERS = [
     repo:"PortSwigger/mcp-server", url:"https://github.com/PortSwigger/mcp-server",
     use:"Drive Burp's proxy history, Repeater and scanner from an AI client (authorized testing).",
     env:[], inst:{t:"docs", v:"https://github.com/PortSwigger/mcp-server"} },
+  { id:"palisade-dmarc-agent", n:"Palisade DMARC Agent", cat:"secmon", tier:"freemium", badge:"official", tr:"stdio",
+    repo:"palisadeemail/palisade-mcp", url:"https://github.com/palisadeemail/palisade-mcp",
+    use:"Manage DMARC, SPF, DKIM, BIMI, MTA-STS and DNS records from your agent.",
+    env:["PALISADE_API_KEY"], inst:{t:"npx", v:"@palisadeemail/mcp"},
+    sec:"Uses a Palisade API key with access to domains and email-authentication management." },
 
   // ---------- Design & 3D ----------
   { id:"figma", n:"Figma Dev Mode", cat:"design", tier:"paid", badge:"official", tr:"http",
