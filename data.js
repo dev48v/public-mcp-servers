@@ -92,6 +92,11 @@ const SERVERS = [
     env:[], inst:{t:"npx", v:"n8n-mcp"} },
 
   // ---------- Browser & Automation ----------
+  { id:"agent-qa", n:"Agent QA", cat:"browser", tier:"freemium", badge:"official", tr:"stdio",
+    repo:"vostride/agent-qa", url:"https://github.com/vostride/agent-qa",
+    use:"Define, validate, run and triage natural-language web and mobile application tests with configurable model, browser and device providers.",
+    env:[], inst:{t:"npx", v:"agent-qa", args:["mcp"]},
+    sec:"Can drive browsers and device providers against applications — scope targets and test credentials appropriately." },
   { id:"playwright", n:"Playwright", cat:"browser", tier:"free", badge:"official", tr:"stdio",
     repo:"microsoft/playwright-mcp", url:"https://github.com/microsoft/playwright-mcp",
     use:"Drive a real browser via accessibility tree — click, type, screenshot, test web apps.",
