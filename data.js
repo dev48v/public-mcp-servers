@@ -563,5 +563,9 @@ const SERVERS = [
     repo:"nowork-studio/NotFair", url:"https://github.com/nowork-studio/NotFair",
     use:"Open-source Claude Code skills for SEO, GEO/AEO and paid ads that bundle four MCP servers — Google Search Console, Google Analytics (GA4), Google Ads and Meta Ads — for live account data.",
     env:["GOOGLE_ADS_CREDENTIALS","META_ADS_CREDENTIALS","GSC_CREDENTIALS","GA4_CREDENTIALS"], inst:{t:"docs", v:"https://github.com/nowork-studio/NotFair"},
-    sec:"Connects to Google and Meta ad/analytics accounts via OAuth — scope credentials to only the accounts you want the agent to touch." }
+    sec:"Connects to Google and Meta ad/analytics accounts via OAuth — scope credentials to only the accounts you want the agent to touch." },
+  { id:"pocketdrives", n:"Pocket Drives", cat:"search", tier:"free", badge:"official", tr:"http",
+    repo:"RevList/pocket-drives-mcp", url:"https://github.com/RevList/pocket-drives-mcp",
+    use:"Search peer-to-peer luxury, exotic, and EV rentals from independent hosts.",
+    env:[], inst:{t:"http", v:"https://pocketdrives.ai/mcp"} }
 ];
