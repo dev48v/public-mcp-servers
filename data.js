@@ -90,6 +90,12 @@ const SERVERS = [
     repo:"czlonkowski/n8n-mcp", url:"https://github.com/czlonkowski/n8n-mcp",
     use:"Build n8n workflows with full node documentation — the agent knows every n8n node.",
     env:[], inst:{t:"npx", v:"n8n-mcp"} },
+  { id:"sandbase-harness", n:"SandBase Harness", cat:"dev", tier:"free", badge:"community", tr:"stdio",
+    repo:"sandbaseai/sandbase-harness", url:"https://github.com/sandbaseai/sandbase-harness/blob/main/llms-install.md",
+    use:"Manage agents and durable sessions through a self-hosted runtime's MCP bridge.",
+    env:["MANAGED_AGENTS_URL", "MANAGED_AGENTS_API_KEY"],
+    inst:{t:"docker", v:"ghcr.io/sandbaseai/sandbase-harness-mcp:0.3.8"},
+    sec:"The bridge connects to a running Harness API; scope its URL and API key to the intended self-hosted runtime." },
 
   // ---------- Browser & Automation ----------
   { id:"playwright", n:"Playwright", cat:"browser", tier:"free", badge:"official", tr:"stdio",
