@@ -377,6 +377,11 @@ const SERVERS = [
     use:"Search, monitor and extract X/Twitter data; run media tools, webhooks and confirmation-gated write actions.",
     env:["XQUIK_API_KEY"], inst:{t:"http", v:"https://xquik.com/mcp"},
     sec:"Handles account data and write-capable tools — keep the API key out of prompts and review each write action." },
+  { id:"bulkpublish", n:"BulkPublish", cat:"comm", tier:"free", badge:"community", tr:"http",
+    repo:"azeemkafridi/bulkpublish-api", url:"https://github.com/azeemkafridi/bulkpublish-api",
+    use:"Plan, adapt, review, schedule and batch-publish social media content through a hosted MCP server.",
+    env:["BULKPUBLISH_API_KEY"], inst:{t:"http", v:"https://mcp.bulkpublish.com/mcp"},
+    sec:"Publishing is an external side effect — require explicit confirmation and keep credentials runtime-only." },
 
   // ---------- Finance & Payments ----------
   { id:"stripe", n:"Stripe", cat:"fin", tier:"freemium", badge:"official", tr:"http",
