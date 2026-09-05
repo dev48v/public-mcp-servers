@@ -504,6 +504,11 @@ const SERVERS = [
     env:[], inst:{t:"docs", v:"https://github.com/Coding-Solo/godot-mcp"} },
 
   // ---------- Knowledge & Content ----------
+  { id:"parlayapi", n:"ParlayAPI", cat:"know", tier:"freemium", badge:"official", tr:"stdio",
+    repo:"JacobiusMakes/parlay-api-mcp", url:"https://github.com/JacobiusMakes/parlay-api-mcp",
+    use:"Sports odds, player props, public event discovery and account usage through ParlayAPI.",
+    env:[], inst:{t:"uvx", v:"--from", args:["parlayapi-mcp==0.3.5","parlayapi-mcp"]},
+    sec:"Public discovery needs no key. Account data tools require your own PARLAYAPI_KEY and account allowances; approve account-changing tools explicitly. Service terms govern data use." },
   { id:"wikipedia", n:"Wikipedia", cat:"know", tier:"free", badge:"community", tr:"stdio",
     repo:"Rudra-ravi/wikipedia-mcp", url:"https://github.com/Rudra-ravi/wikipedia-mcp",
     use:"Search and summarize Wikipedia — grounded factual context, no key needed.",
