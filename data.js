@@ -446,6 +446,10 @@ const SERVERS = [
     repo:"BeehiveInnovations/pal-mcp-server", url:"https://github.com/BeehiveInnovations/pal-mcp-server",
     use:"Multi-model orchestration — Claude consults Gemini/GPT/local models for review and debate (BYO keys).",
     env:[], inst:{t:"docs", v:"https://github.com/BeehiveInnovations/pal-mcp-server"} },
+  { id:"csoai-gspc", n:"Council of AI GSPC", cat:"ai", tier:"free", badge:"official", tr:"stdio",
+    repo:"CSOAI-ORG/councilof-ai", url:"https://github.com/CSOAI-ORG/councilof-ai",
+    use:"Query a living AI measurement board and verify signed evidence through twelve MCP tools.",
+    env:[], inst:{t:"npx", v:"csoai-gspc-mcp"} },
 
   // ---------- Security & Monitoring ----------
   { id:"sentry", n:"Sentry", cat:"secmon", tier:"freemium", badge:"official", tr:"http",
