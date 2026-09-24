@@ -237,6 +237,11 @@ const SERVERS = [
     repo:"hashicorp/terraform-mcp-server", url:"https://github.com/hashicorp/terraform-mcp-server",
     use:"Registry-aware IaC authoring — accurate provider/module docs while writing HCL.",
     env:[], inst:{t:"docker", v:"hashicorp/terraform-mcp-server"} },
+  { id:"kleap", n:"Kleap", cat:"cloud", tier:"freemium", badge:"official", tr:"http",
+    repo:"kleaphq/cli", url:"https://kleap.co/mcp",
+    use:"Create, edit, publish and host websites and web apps from your agent, connect domains, and confirm each publish is actually live.",
+    env:[], inst:{t:"http", v:"https://kleap.co/api/mcp"},
+    sec:"Acts on your Kleap account (OAuth) and can publish sites publicly — review before publishing." },
 
   // ---------- Search & Scraping ----------
   { id:"brave", n:"Brave Search", cat:"search", tier:"freemium", badge:"official", tr:"stdio",
