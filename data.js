@@ -563,5 +563,10 @@ const SERVERS = [
     repo:"nowork-studio/NotFair", url:"https://github.com/nowork-studio/NotFair",
     use:"Open-source Claude Code skills for SEO, GEO/AEO and paid ads that bundle four MCP servers — Google Search Console, Google Analytics (GA4), Google Ads and Meta Ads — for live account data.",
     env:["GOOGLE_ADS_CREDENTIALS","META_ADS_CREDENTIALS","GSC_CREDENTIALS","GA4_CREDENTIALS"], inst:{t:"docs", v:"https://github.com/nowork-studio/NotFair"},
-    sec:"Connects to Google and Meta ad/analytics accounts via OAuth — scope credentials to only the accounts you want the agent to touch." }
+    sec:"Connects to Google and Meta ad/analytics accounts via OAuth — scope credentials to only the accounts you want the agent to touch." },
+  { id:"robotspeed", n:"Robot Speed", cat:"biz", tier:"freemium", badge:"official", tr:"http",
+    repo:"robot-speed/mcp", url:"https://www.robot-speed.com/mcp",
+    use:"SEO audits, Core Web Vitals, meta/schema/noindex checks, keyword ideas and AI-crawler visibility; 12 read-only tools need no account, OAuth adds Search Console traffic, backlinks and CMS publishing.",
+    env:[], inst:{t:"http", v:"https://www.robot-speed.com/api/mcp"},
+    sec:"The OAuth tools can publish content to your connected CMS — review drafts before approving." }
 ];
