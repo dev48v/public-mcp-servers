@@ -538,6 +538,11 @@ const SERVERS = [
     env:[], inst:{t:"docs", v:"https://www.home-assistant.io/integrations/mcp_server/"} },
 
   // ---------- Business & CRM ----------
+  { id:"statsnet", n:"Statsnet", cat:"biz", tier:"freemium", badge:"official", tr:"http",
+    repo:"usenetstate/statsnet-mcp", url:"https://github.com/usenetstate/statsnet-mcp",
+    use:"Background check any company in the world: registration, executives, courts and finances.",
+    env:["STATSNET_API_KEY"], inst:{t:"http", v:"https://statsnet.co/mcp"},
+    sec:"Company background-check data — use only for legitimate due diligence." },
   { id:"shopify", n:"Shopify Dev", cat:"biz", tier:"freemium", badge:"official", tr:"stdio",
     repo:null, url:"https://shopify.dev/docs/apps/build/devmcp",
     use:"Search Shopify docs and explore Admin GraphQL schema while building apps.",
