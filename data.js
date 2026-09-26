@@ -504,6 +504,11 @@ const SERVERS = [
     env:[], inst:{t:"docs", v:"https://github.com/Coding-Solo/godot-mcp"} },
 
   // ---------- Knowledge & Content ----------
+  { id:"hyperconsciousness", n:"Hyperconsciousness", cat:"know", tier:"free", badge:"official", tr:"stdio",
+    repo:"louis030195/hyperconsciousness", url:"https://github.com/louis030195/hyperconsciousness",
+    use:"Search encrypted, append-only knowledge through scoped, expiring grants with this developer-alpha Rust MCP server.",
+    env:[], inst:{t:"docs", v:"https://github.com/louis030195/hyperconsciousness#install-from-source"},
+    sec:"Build from source and configure a store/grant; no independent audit, grants are not an OS sandbox, and hosted models can see returned plaintext." },
   { id:"wikipedia", n:"Wikipedia", cat:"know", tier:"free", badge:"community", tr:"stdio",
     repo:"Rudra-ravi/wikipedia-mcp", url:"https://github.com/Rudra-ravi/wikipedia-mcp",
     use:"Search and summarize Wikipedia — grounded factual context, no key needed.",
