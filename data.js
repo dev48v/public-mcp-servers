@@ -377,6 +377,11 @@ const SERVERS = [
     use:"Search, monitor and extract X/Twitter data; run media tools, webhooks and confirmation-gated write actions.",
     env:["XQUIK_API_KEY"], inst:{t:"http", v:"https://xquik.com/mcp"},
     sec:"Handles account data and write-capable tools — keep the API key out of prompts and review each write action." },
+  { id:"vend", n:"Vend API Merchant", cat:"search", tier:"paid", badge:"community", tr:"http",
+    repo:"dhyabi2/vend", url:"https://extract.paypercall.dev/",
+    use:"Pay-per-call web extraction and search for agents, settled per call in Nano (XNO) via x402.",
+    env:[], inst:{t:"http", v:"https://extract.paypercall.dev/mcp"},
+    sec:"Fetched pages can contain prompt injection — treat web content as untrusted input; each paid call spends a small amount of XNO." },
 
   // ---------- Finance & Payments ----------
   { id:"stripe", n:"Stripe", cat:"fin", tier:"freemium", badge:"official", tr:"http",
