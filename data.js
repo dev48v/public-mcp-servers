@@ -20,6 +20,11 @@ const CATS = {
 };
 
 const SERVERS = [
+  { id:"doc2x", n:"Doc2X MCP", cat:"prod", tier:"paid", badge:"official", tr:"stdio",
+    repo:"NoEdgeAI/doc2x-mcp", url:"https://github.com/NoEdgeAI/doc2x-mcp",
+    use:"Parse PDFs/images with formulas and tables, export editable documents and extract layout JSON via the Doc2X cloud API.",
+    env:["DOC2X_API_KEY"], inst:{t:"npx", v:"@noedgeai-org/doc2x-mcp"},
+    sec:"Requires Node.js >=18 and your own API key; uploads documents to Doc2X cloud. API usage billed separately from MIT source; web free allowance is not free API." },
   // ---------- Reference servers (Anthropic) ----------
   { id:"filesystem", n:"Filesystem", cat:"util", tier:"free", badge:"reference", tr:"stdio",
     repo:"modelcontextprotocol/servers", url:"https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
