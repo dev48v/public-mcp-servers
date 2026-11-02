@@ -20,6 +20,11 @@ const CATS = {
 };
 
 const SERVERS = [
+  { id:"kilobat-cli", n:"Kilobat CLI", cat:"secmon", tier:"free", badge:"official", tr:"stdio",
+    repo:"seifip/kilobat-cli", url:"https://github.com/seifip/kilobat-cli",
+    use:"Inspect macOS network conditions and diagnose connection problems.",
+    env:[], inst:{t:"docs", v:"https://github.com/seifip/kilobat-cli"},
+    sec:"Some actions change settings and may require administrator authorization; client confirmation is not enforced globally." },
   // ---------- Reference servers (Anthropic) ----------
   { id:"filesystem", n:"Filesystem", cat:"util", tier:"free", badge:"reference", tr:"stdio",
     repo:"modelcontextprotocol/servers", url:"https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
