@@ -182,6 +182,10 @@ const SERVERS = [
     env:[], inst:{t:"docs", v:"https://github.com/Snowflake-Labs/mcp"} },
 
   // ---------- Cloud & Infra ----------
+  { id:"dchub", n:"DC Hub", cat:"cloud", tier:"free", badge:"official", tr:"http",
+    repo:"azmartone67/dchub-mcp-server", url:"https://dchub.cloud/connect?utm_source=dev48v-public-mcp-servers&utm_medium=listing&utm_campaign=directories",
+    use:"Live data-center site selection layer; Data Center Power Index (DCPI) scores where data centers can get grid power across 300+ markets (94 tools).",
+    env:[], inst:{t:"http", v:"https://dchub.cloud/mcp"} },
   { id:"aws", n:"AWS (awslabs suite)", cat:"cloud", tier:"freemium", badge:"official", tr:"stdio",
     repo:"awslabs/mcp", url:"https://github.com/awslabs/mcp",
     use:"20+ official servers: CDK, cost analysis, Bedrock KB, docs, Lambda, EKS and more.",
