@@ -184,7 +184,7 @@ const SERVERS = [
   // ---------- Cloud & Infra ----------
   { id:"dchub", n:"DC Hub", cat:"cloud", tier:"free", badge:"official", tr:"http",
     repo:"azmartone67/dchub-mcp-server", url:"https://dchub.cloud/connect?utm_source=dev48v-public-mcp-servers&utm_medium=listing&utm_campaign=directories",
-    use:"Live data-center site selection layer; Data Center Power Index (DCPI) scores where data centers can get grid power across 300+ markets (94 tools).",
+    use:"Orchestration layer for data center and energy intelligence; start with execute_plan. Data Center Power Index (DCPI) scores where data centers can get grid power across 300+ markets (96 tools). DCHUB_API_KEY is optional.",
     env:[], inst:{t:"http", v:"https://dchub.cloud/mcp"} },
   { id:"aws", n:"AWS (awslabs suite)", cat:"cloud", tier:"freemium", badge:"official", tr:"stdio",
     repo:"awslabs/mcp", url:"https://github.com/awslabs/mcp",
