@@ -20,6 +20,7 @@ const CATS = {
 };
 
 const SERVERS = [
+  {"id":"fairvalid","n":"FairValid","cat":"comm","tier":"freemium","badge":"official","tr":"http","repo":"moonlitnayeem/fairvalid-ai","url":"https://fairvalid.com/en/help/mcp","use":"Verify email addresses and search, quote, and unlock FairMatch business leads.","env":[],"inst":{"t":"http","v":"https://mcp.fairvalid.com/mcp"},"sec":"Requires account OAuth or scoped API key; verification jobs and FairMatch unlocks use shared credits."},
   // ---------- Reference servers (Anthropic) ----------
   { id:"filesystem", n:"Filesystem", cat:"util", tier:"free", badge:"reference", tr:"stdio",
     repo:"modelcontextprotocol/servers", url:"https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
